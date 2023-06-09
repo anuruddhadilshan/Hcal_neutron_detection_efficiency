@@ -35,7 +35,9 @@ void calc_hadron_angle(double Q2, double E_beam, double theta_deg)
 	// Let the angle between the Z axis and the pprimeproton_vec_dirn be "proton_angle"
 	double cos_proton_angle = pprimeproton_vec_dirn.Dot(z_hat);
 	double proton_angle = acos(cos_proton_angle)*TMath::RadToDeg();
+	double proton_3momentum_mag = Pprimeproton.Vect().Mag();
 	std::cout << "The scattered proton angle: " << std::fixed << std::setprecision(1) << proton_angle << " degrees\n";
+	std::cout << "The scattered proton momentum: " << std::fixed << std::setprecision(2) << proton_3momentum_mag << " GeV/c\n";
 
 
 	//// gamma(p,n)pi+ ////
@@ -53,8 +55,10 @@ void calc_hadron_angle(double Q2, double E_beam, double theta_deg)
 	// Direction of the scattered neutron 3 vector.
 	TVector3 pneutron_vec_dirn = Pneutron.Vect().Unit();
 	// Let the angle between the Z axis and the pneutron_vec_dirn be "piplus_angle"
-	double cos_piplus_angle = pneutron_vec_dirn.Dot(z_hat);
-	double piplus_angle = acos(cos_piplus_angle)*TMath::RadToDeg();
-	std::cout << "The scattered pi+ angle: " << std::fixed << std::setprecision(1) << piplus_angle << " degrees\n";
+	double cos_neutron_angle = pneutron_vec_dirn.Dot(z_hat);
+	double neutron_angle = acos(cos_neutron_angle)*TMath::RadToDeg();
+	double neutron_3momentum_mag = Pneutron.Vect().Mag();
+	std::cout << "The scattered neutron angle: " << std::fixed << std::setprecision(1) << neutron_angle << " degrees\n";
+	std::cout << "The scattered neutron momentum: " << std::fixed << std::setprecision(2) << neutron_3momentum_mag << " GeV/c\n";
 
 }
