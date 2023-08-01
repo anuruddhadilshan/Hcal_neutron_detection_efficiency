@@ -66,11 +66,10 @@ void calc_pionprod_thres_withpolangle(double E_beam = 4.0268, double theta_deg =
 	std::cout << '\n' << "*** Extending the calcualtion to the case where the polar scattering angle of pi+ is non-zero ***" << '\n';
 	double tan_theta = tan(TMath::DegToRad()*theta_deg); 
 
-	// photon + p --> pi+ + pi0 + n
+	// photon + p --> pi+ + n
 	std::cout << '\n' << "*** Reaction: photon + p --> pi+ + n ***" << '\n';
 	double cos_thetaprime_1pi_pos = ( -v_CMframe*E_piplus_CM_1pi*std::pow(gamm_fac*tan_theta,2) + std::sqrt(std::pow(gamm_fac*tan_theta,2)*(std::pow(p_piplus_CM_1pi,2) - std::pow(v_CMframe*E_piplus_CM_1pi,2)) + std::pow(p_piplus_CM_1pi,2))) / ( p_piplus_CM_1pi*(std::pow(gamm_fac*tan_theta,2) + 1) );
 	double cos_thetaprime_1pi_neg = ( -v_CMframe*E_piplus_CM_2pi*std::pow(gamm_fac*tan_theta,2) - std::sqrt(std::pow(gamm_fac*tan_theta,2)*(std::pow(p_piplus_CM_1pi,2) - std::pow(v_CMframe*E_piplus_CM_1pi,2)) + std::pow(p_piplus_CM_1pi,2))) / ( p_piplus_CM_1pi*(std::pow(gamm_fac*tan_theta,2) + 1) );
-
 
 	std::cout << "cos_thetaprime_1pi_pos: " << cos_thetaprime_1pi_pos << '\n';
 	std::cout << "Pos sol thetaprime: " << acos(cos_thetaprime_1pi_pos)*TMath::RadToDeg() << " degrees\n";
@@ -94,7 +93,6 @@ void calc_pionprod_thres_withpolangle(double E_beam = 4.0268, double theta_deg =
 	// Lab frame calculation //
 	// double p_piplus_labframecalc_1pi_max = ( -(s+std::pow(piplus_mass,2)-std::pow(n_mass,2))*E_gamma*cos(theta_deg) + (E_gamma + p_mass)*std::sqrt( 4*std::pow(piplus_mass*E_gamma*cos(theta_deg),2) + (s+std::pow(piplus_mass,2)-std::pow(n_mass,2)) -4*std::pow(piplus_mass,2)*std::pow(E_gamma+p_mass,2) ) ) / ( 4*(std::pow(E_gamma*cos(theta_deg),2) - std::pow(E_gamma+p_mass,2)) );
 	// std::cout << "Max possible pi+ momentum in the lab frame from pure lab frame only calcualtion: " << p_piplus_labframecalc_1pi_max << " GeV/c\n";
-
 	////
 
 	// photon + p --> pi+ + pi0 + n
